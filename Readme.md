@@ -3,9 +3,18 @@
 
 
 
-Client Setup-
+## Client
+### start:
+* npm start
+### Setup:
 * npx create-react-app
 
 
-Server Setup-
+## Server
+### start:
+* npm start
+### Setup:
 * npm init -y
+* npm install body-parser cors express mongoose nodemon
+
+
