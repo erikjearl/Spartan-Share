@@ -1,20 +1,15 @@
 # HacSoc Fall Project 2022
-* Authors: Erik, Jeff, Alex
-
+* Authors: Erik, Jeff, Alex, Alex, Jessica
 
 
 ## Client
-### start:
-* npm start
+### Start: npm start
 ### Setup:
 * npx create-react-app
 
 
 ## Server
-### start:
-* npm start
+### start: npm start
 ### Setup:
 * npm init -y
 * npm install body-parser cors express mongoose nodemon
-
-
