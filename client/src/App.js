@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { Container } from '@material-ui/core'
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import { getUploads } from "./actions/uploads"
+import Home from "./components/Home/Home";
+import Search from "./components/Search/Search";
+import Navbar from "./components/Navbar/Navbar";
+import Form from "./components/Form/Form";
+
+const App = () => {
+
+    // app body
+    return(
+        <Container maxWidth="lg">
+            
+            <Navbar />
+
+            <BrowserRouter>
+                <Routes>
+                    <Route path='/' element={<Home />} />
+                    <Route path='/search' element={<Search />} />
+                    <Route path='/form' element={<Form />} />
+                </Routes>
+            </BrowserRouter>
+
+        </Container>
+    );
 }
 
 export default App;
