@@ -5,6 +5,10 @@ import { useDispatch } from 'react-redux';
 
 import useStyles from './styles'
 
+
+
+
+
 const Form = () => {
     const [uploadData, setUploadData] = useState({
         name:'',
@@ -18,6 +22,11 @@ const Form = () => {
 
     const clear = () => {
         // implement form clear
+        setUploadData({
+            name: '',
+            selectedFile: ''
+        })
+
     }
 
     return(
