@@ -1,5 +1,5 @@
 # HacSoc Fall Project 2022
-* Authors: Erik, Jeff, Alex R, Alex W, Jessica
+* Authors: Erik, Jeff, Alex R, Alex, Jessica S
 
 
 ## Client
