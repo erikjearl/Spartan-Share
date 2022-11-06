@@ -2,7 +2,7 @@ import React from 'react';
 import { Container } from '@material-ui/core'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-import { getUploads } from "./actions/uploads"
+import { getNotes } from "./actions/notes"
 import Home from "./components/Home/Home";
 import Search from "./components/Search/Search";
 import Navbar from "./components/Navbar/Navbar";

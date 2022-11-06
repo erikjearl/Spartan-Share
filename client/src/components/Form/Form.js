@@ -10,7 +10,7 @@ import useStyles from './styles'
 
 
 const Form = () => {
-    const [uploadData, setUploadData] = useState({
+    const [noteData, setNoteData] = useState({
         name:'',
         selectedFile:'',
     });
@@ -22,7 +22,7 @@ const Form = () => {
 
     const clear = () => {
         // implement form clear
-        setUploadData({
+        setNoteData({
             name: '',
             selectedFile: ''
         })
@@ -32,14 +32,14 @@ const Form = () => {
     return(
         <Paper className={classes.paper}>
             <form autoComplete='off' noValidate className={`${classes.root} ${classes.form}`} onSubmit={handleSubmit}>
-                <Typography variant="h3">Post a Data Upload</Typography>
+                <Typography variant="h3">Post a New Note</Typography>
                 <TextField name="name" variant='outlined' label='name' fullWidth 
-                    value={uploadData.name}      onChange={(e) => setUploadData(       {...uploadData, name:e.target.value}) }/>
+                    value={noteData.name}      onChange={(e) => setNoteData(       {...noteData, name:e.target.value}) }/>
                 
                 <div className={classes.fileInput}>
                     <FileBase
                         type='file' multiple={false}
-                        onDone={({base64}) => setUploadData({...uploadData, selectedFile:base64})}
+                        onDone={({base64}) => setNoteData({...noteData, selectedFile:base64})}
                     />
                 </div>
 
