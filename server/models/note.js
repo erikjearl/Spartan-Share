@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 
-// define data model for each upload
-const uploadSchema = mongoose.Schema({
+// define data model for each note
+const noteSchema = mongoose.Schema({
     name: String,
     class: String,
     description: String,
@@ -22,6 +22,6 @@ const uploadSchema = mongoose.Schema({
     }
 });
 
-// change upload to 'note'
-const upload = mongoose.model('uploadModel', uploadSchema);
-export default upload;
+// change note to 'note'
+const note = mongoose.model('noteModel', noteSchema);
+export default note;
