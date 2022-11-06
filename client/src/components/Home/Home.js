@@ -7,3 +7,5 @@ const Home = () => {
   };
   
 export default Home;
+
+// add this later to make text white: style="color:#FFFFFF"
