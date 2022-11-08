@@ -18,7 +18,7 @@ const Form = () => {
         description:'',
         selectedFile:'',
     });
-    
+
     // button functionally 
     const handleSubmit = (event) => {
         event.preventDefault(); 
@@ -33,9 +33,6 @@ const Form = () => {
             description:'',
             selectedFile:'',
         })
-
-        // reset the file selection
-        fileInput.current.value = null;
     }
 
     return(
@@ -47,7 +44,6 @@ const Form = () => {
                 
                 <div className={classes.fileInput}>
                     <FileBase
-                        ref={fileInput}
                         type='file' multiple={false}
                         onDone={({base64}) => setNoteData({...noteData, selectedFile:base64})}
                     />
