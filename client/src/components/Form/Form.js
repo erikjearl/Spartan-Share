@@ -3,30 +3,36 @@ import { TextField, Button, Typography, Paper } from '@material-ui/core';
 import FileBase from 'react-file-base64';
 import { useDispatch } from 'react-redux';
 
-
+import { createNote } from '../../actions/notes';
 import useStyles from './styles'
 
 
-
-
-
 const Form = () => {
-    const [uploadData, setUploadData] = useState({
+    const classes = useStyles();
+    const dispatch = useDispatch();
+
+    // hooks
+    const [noteData, setNoteData] = useState({
         name:'',
+        class:'',
+        description:'',
         selectedFile:'',
     });
     const classes = useStyles();
-    const fileInput = useRef(null);
 
-    const handleSubmit = () => {
-        // implement submit functionality
+    // button functionally 
+    const handleSubmit = (event) => {
+        event.preventDefault(); 
+        dispatch(createNote(noteData))
     }
 
+    // implement form clear
     const clear = () => {
-        // implement form clear
-        setUploadData({
-            name: '',
-            selectedFile: ''
+        setNoteData({
+            name:'',
+            class:'',
+            description:'',
+            selectedFile:'',
         })
 
         // reset the file selection
@@ -36,15 +42,15 @@ const Form = () => {
     return(
         <Paper className={classes.paper}>
             <form autoComplete='off' noValidate className={`${classes.root} ${classes.form}`} onSubmit={handleSubmit}>
-                <Typography variant="h3">Post a Data Upload</Typography>
+                <Typography variant="h3">Post a New Note</Typography>
                 <TextField name="name" variant='outlined' label='name' fullWidth 
-                    value={uploadData.name}      onChange={(e) => setUploadData(       {...uploadData, name:e.target.value}) }/>
+                    value={noteData.name}      onChange={(e) => setNoteData(       {...noteData, name:e.target.value}) }/>
                 
                 <div className={classes.fileInput}>
                     <FileBase
                         ref={fileInput}
                         type='file' multiple={false}
-                        onDone={({base64}) => setUploadData({...uploadData, selectedFile:base64})}
+                        onDone={({base64}) => setNoteData({...noteData, selectedFile:base64})}
                     />
                 </div>
 
