@@ -8,10 +8,10 @@ import noteRoutes from './routes/notes.js'
 
 // define express app and uses
 const app = express();
+app.use('/notes', noteRoutes);
 app.use(bodyParser.json({ limit: "30mb", extended:true }))
 app.use(bodyParser.urlencoded({ limit: "30mb", extended:true }))
 app.use(cors());
-app.use('/notes', noteRoutes);
 dotenv.config();
 
 // https://www.mongodb.com/cloud/atlas

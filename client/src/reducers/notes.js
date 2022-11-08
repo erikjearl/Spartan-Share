@@ -1,4 +1,4 @@
-const notes =  (notes = [], action) => {
+export default (notes = [], action) => {
     switch (action.type) {
       case 'FETCH_ALL':
         return action.payload;
@@ -8,5 +8,3 @@ const notes =  (notes = [], action) => {
         return notes;
     }
 };
-
-export default notes;
