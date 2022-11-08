@@ -6,13 +6,15 @@ const noteSchema = mongoose.Schema({
     class: String,
     description: String,
     selectedFile: String,
-    lectureDate: Date,
-    views: Number,
-    priority: {
+    likeCount: {
         type: Number,
         default: 0
     },
-    likeCount: {
+    views: {
+        type: Number,
+        default: 0
+    },
+    priority: {
         type: Number,
         default: 0
     },

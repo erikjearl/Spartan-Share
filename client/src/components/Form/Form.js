@@ -7,16 +7,17 @@ import {createNote} from '../../actions/notes'
 import useStyles from './styles'
 
 
-
-
-
 const Form = () => {
-    const [noteData, setNoteData] = useState({
-        name:'',
-        selectedFile:'',
-    });
     const classes = useStyles();
     const dispatch = useDispatch();
+
+    // hooks
+    const [noteData, setNoteData] = useState({
+        name:'',
+        class:'',
+        description:'',
+        selectedFile:'',
+    });
 
     // button functionally 
     const handleSubmit = (event) => {
@@ -24,11 +25,13 @@ const Form = () => {
         dispatch(createNote(noteData))
     }
 
+    // implement form clear
     const clear = () => {
-        // implement form clear
         setNoteData({
-            name: '',
-            selectedFile: ''
+            name:'',
+            class:'',
+            description:'',
+            selectedFile:'',
         })
     }
 
