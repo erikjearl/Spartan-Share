@@ -3,28 +3,36 @@ import { TextField, Button, Typography, Paper } from '@material-ui/core';
 import FileBase from 'react-file-base64';
 import { useDispatch } from 'react-redux';
 
+import { createNote } from '../../actions/notes';
 import useStyles from './styles'
 
 
-
-
-
 const Form = () => {
+    const classes = useStyles();
+    const dispatch = useDispatch();
+
+    // hooks
     const [noteData, setNoteData] = useState({
         name:'',
+        class:'',
+        description:'',
         selectedFile:'',
     });
-    const classes = useStyles();
 
-    const handleSubmit = () => {
-        // implement submit functionality
+
+    // button functionally 
+    const handleSubmit = (event) => {
+        event.preventDefault(); 
+        dispatch(createNote(noteData))
     }
 
+    // implement form clear
     const clear = () => {
-        // implement form clear
         setNoteData({
-            name: '',
-            selectedFile: ''
+            name:'',
+            class:'',
+            description:'',
+            selectedFile:'',
         })
 
     }
