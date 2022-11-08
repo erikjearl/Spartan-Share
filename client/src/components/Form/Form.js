@@ -4,17 +4,22 @@ import FileBase from 'react-file-base64';
 import { useDispatch } from 'react-redux';
 import {createNote} from '../../actions/notes'
 
+import { createNote } from '../../actions/notes';
 import useStyles from './styles'
 
 
-
-
-
 const Form = () => {
+    const classes = useStyles();
+    const dispatch = useDispatch();
+
+    // hooks
     const [noteData, setNoteData] = useState({
         name:'',
+        class:'',
+        description:'',
         selectedFile:'',
     });
+    
     const classes = useStyles();
     const dispatch = useDispatch();
 
@@ -24,11 +29,13 @@ const Form = () => {
         dispatch(createNote(noteData))
     }
 
+    // implement form clear
     const clear = () => {
-        // implement form clear
         setNoteData({
-            name: '',
-            selectedFile: ''
+            name:'',
+            class:'',
+            description:'',
+            selectedFile:'',
         })
     }
 
