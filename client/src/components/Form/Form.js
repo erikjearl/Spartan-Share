@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { TextField, Button, Typography, Paper } from '@material-ui/core';
 import FileBase from 'react-file-base64';
 import { useDispatch } from 'react-redux';
+
 
 import useStyles from './styles'
 
@@ -15,6 +16,7 @@ const Form = () => {
         selectedFile:'',
     });
     const classes = useStyles();
+    const fileInput = useRef(null);
 
     const handleSubmit = () => {
         // implement submit functionality
@@ -27,6 +29,8 @@ const Form = () => {
             selectedFile: ''
         })
 
+        // reset the file selection
+        fileInput.current.value = null;
     }
 
     return(
@@ -38,6 +42,7 @@ const Form = () => {
                 
                 <div className={classes.fileInput}>
                     <FileBase
+                        ref={fileInput}
                         type='file' multiple={false}
                         onDone={({base64}) => setUploadData({...uploadData, selectedFile:base64})}
                     />
