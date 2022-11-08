@@ -4,7 +4,6 @@ import FileBase from 'react-file-base64';
 import { useDispatch } from 'react-redux';
 import {createNote} from '../../actions/notes'
 
-import { createNote } from '../../actions/notes';
 import useStyles from './styles'
 
 
@@ -19,9 +18,6 @@ const Form = () => {
         description:'',
         selectedFile:'',
     });
-    
-    const classes = useStyles();
-    const dispatch = useDispatch();
 
     // button functionally 
     const handleSubmit = (event) => {
