@@ -17,6 +17,6 @@ export const createNote = (note) => async (dispatch) => {
         const action = { type:'CREATE', payload:data};
         dispatch(action);
     } catch (error) {
-        console.log(error);
+        console.log(error.message);
     }
 }
