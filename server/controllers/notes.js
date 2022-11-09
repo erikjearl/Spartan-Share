@@ -18,7 +18,7 @@ export const postNote = async (req, res) => {
     const note = req.body;
     const newNote = new NoteModel(note);
     try {
-        await newPost.save();
+        await newNote.save();
         res.status(201).json(newNote)
     } catch (error) {
         res.status(409).json({message: error.message})
