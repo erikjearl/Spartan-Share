@@ -1,5 +1,5 @@
-import React, { useState, useRef } from 'react';
-import { TextField, Button, Typography, Paper, Grid } from '@material-ui/core';
+import React, { useState } from 'react';
+import { TextField, Button, Typography, Paper } from '@material-ui/core';
 import FileBase from 'react-file-base64';
 import { useDispatch } from 'react-redux';
 import { createNote } from '../../actions/notes'
@@ -19,7 +19,6 @@ const Form = () => {
         selectedFile: '',
     });
 
-
     // button functionally 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -31,7 +30,6 @@ const Form = () => {
         setNoteData({
             name: '',
             class: '',
-            code: ' ',
             description: '',
             selectedFile: '',
         })
@@ -41,31 +39,26 @@ const Form = () => {
         <Paper className={classes.paper}>
             <form autoComplete='off' noValidate className={`${classes.root} ${classes.form}`} onSubmit={handleSubmit}>
 
+                <Typography className={classes.title} variant="h3" noWrap>Post a New Note</Typography>
 
-                <Typography variant="h3" className={classes.title} noWrap>Post a New Note</Typography>
-
-
-                <TextField name="name" variant='outlined' label='name'
+                <TextField className={classes.smallBox} name="name" variant='outlined' label='Note Name'
                     value={noteData.name} onChange={(e) => setNoteData({ ...noteData, name: e.target.value })} />
 
+                <TextField className={classes.smallBox} name="class" variant='outlined' label='Class Code'
+                    value={noteData.class} onChange={(e) => setNoteData({ ...noteData, class: e.target.value })} />
 
-
-                <TextField name="class number" variant='outlined' label='class number'
-                    value={noteData.code} onChange={(e) => setNoteData({ ...noteData, code: e.target.value })} />
-
-
-                <TextField name="description" variant='outlined' label='description' multiline rows={5} fullWidth
+                <TextField name="description" variant='outlined' label='Description' multiline rows={5} fullWidth
                     value={noteData.description} onChange={(e) => setNoteData({ ...noteData, description: e.target.value })} />
 
-
                 <div className={classes.fileInput}>
-                    <FileBase
+                    <Typography className={classes.title} variant="body1">Attach File(s)</Typography>
+                    <FileBase 
                         type='file' multiple={false}
                         onDone={({ base64 }) => setNoteData({ ...noteData, selectedFile: base64 })}
                     />
                 </div>
 
-
+                
 
                 <Button className={classes.buttonSubmit} variant="contained" color="primary" size="large" type="submit" fullWidth>Submit</Button>
                 <Button variant="contained" color="secondary" size="small" onClick={clear} fullWidth>Clear</Button>

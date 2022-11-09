@@ -13,10 +13,10 @@ const Note = ({note}) => {
             <CardMedia className={classes.media} image={note.selectedFile || 'https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png'} title={note.title}/>
 
             <CardContent>
-                <Typography>
+                <Typography variant='h4'>
                     {note.name}
                 </Typography>
-                <Typography>
+                <Typography variant="h6">
                     {note.class}
                 </Typography>
                 <Typography variant="body1">
@@ -25,7 +25,7 @@ const Note = ({note}) => {
             </CardContent>
 
             <CardActions>
-                <Button>Like</Button>
+                <Button>Like 👍</Button>
             </CardActions>
 
         </Card>
