@@ -14,7 +14,13 @@ const Note = ({note}) => {
 
             <CardContent>
                 <Typography>
-                    Look into Card from material UI i think it has useful stuff for displaying an note
+                    {note.name}
+                </Typography>
+                <Typography>
+                    {note.class}
+                </Typography>
+                <Typography variant="body1">
+                    {note.description}
                 </Typography>
             </CardContent>
 
