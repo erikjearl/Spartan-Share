@@ -12,7 +12,7 @@ export default makeStyles((theme) => ({
   form: {
     display: 'flex',
     flexWrap: 'wrap',
-    justifyContent: 'center',
+    justifyContent: 'left',
   },
   fileInput: {
     width: '97%',
@@ -21,4 +21,7 @@ export default makeStyles((theme) => ({
   buttonSubmit: {
     marginBottom: 10,
   },
+  title: {
+    width: "100%"
+  }
 }));
