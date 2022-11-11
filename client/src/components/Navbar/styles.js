@@ -14,6 +14,11 @@ export default makeStyles( () => ({
       },
       heading: {
         color: 'rgba(10, 48, 78)',
+        fontFamily: [
+          '"Times New Roman"',
+          'Arial',
+          'sans-serif',
+        ].join(','),
       },
       image: {
         marginRight: '15px',
@@ -25,5 +30,10 @@ export default makeStyles( () => ({
         marginTop: '15px',
         marginLeft: '35px',
         color: 'rgba(10, 48, 78)',
+        fontFamily: [
+          '"Times New Roman"',
+          'Arial',
+          'sans-serif',
+        ].join(','),
       }
 }));
