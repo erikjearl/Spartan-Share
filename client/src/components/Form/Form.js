@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { TextField, Button, Typography, Paper } from '@material-ui/core';
+import { TextField, Button, Typography, Paper, Select, MenuItem, InputLabel, FormControl} from '@material-ui/core';
 import FileBase from 'react-file-base64';
 import { useDispatch } from 'react-redux';
 import { createNote } from '../../actions/notes'
@@ -16,6 +16,7 @@ const Form = () => {
         name: '',
         class: '',
         description: '',
+        type: '',
         selectedFile: '',
     });
 
@@ -31,6 +32,7 @@ const Form = () => {
             name: '',
             class: '',
             description: '',
+            type: '',
             selectedFile: '',
         })
     }
@@ -50,15 +52,30 @@ const Form = () => {
                 <TextField name="description" variant='outlined' label='Description' multiline rows={5} fullWidth
                     value={noteData.description} onChange={(e) => setNoteData({ ...noteData, description: e.target.value })} />
 
+                <FormControl fullWidth>
+                    <InputLabel id="file-type">File Type</InputLabel>
+                    <Select
+                        labelId="file-type"
+                        id="demo-simple-select"
+                        value={noteData.type}
+                        label="File Type"
+                        onChange={(e) => {
+                            console.log(e.target.value)
+                        }}
+                    >
+                        <MenuItem value={'NOTES'}> Notes </MenuItem>
+                        <MenuItem value={'HW'}> Homework </MenuItem>
+                        <MenuItem value={'LECTURE'}> Lecture Slides </MenuItem>
+                    </Select>
+                </FormControl>
+                
                 <div className={classes.fileInput}>
-                    <Typography className={classes.title} variant="body1">Attach File(s)</Typography>
+                    <Typography className={classes.title} variant="h5">Attach File(s)</Typography>
                     <FileBase 
                         type='file' multiple={false}
                         onDone={({ base64 }) => setNoteData({ ...noteData, selectedFile: base64 })}
                     />
                 </div>
-
-                
 
                 <Button className={classes.buttonSubmit} variant="contained" color="primary" size="large" type="submit" fullWidth>Submit</Button>
                 <Button variant="contained" color="secondary" size="small" onClick={clear} fullWidth>Clear</Button>

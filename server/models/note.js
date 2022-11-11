@@ -6,6 +6,7 @@ const noteSchema = mongoose.Schema({
     class: String,
     description: String,
     selectedFile: String,
+    type: String,
     likeCount: {
         type: Number,
         default: 0
