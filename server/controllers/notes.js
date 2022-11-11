@@ -6,7 +6,6 @@ import NoteModel from '../models/note.js'
 export const getNotes = async (req,res) => {
     try {
         const notes = await NoteModel.find();
-        console.log(notes)
         res.status(200).json(notes);
     } catch (error) {
         res.status(404).json({ message: error.message })

@@ -9,8 +9,6 @@ const Notes = () => {
     const notes = useSelector((state) => state.notes)
     const classes = useStyles();
 
-    console.log(notes);
-
     return(
         !notes.length ? <CircularProgress color='primary'/> : (
             <Grid className={classes.container} container alignItems="stretch" spacing={3}>
