@@ -14,6 +14,7 @@ const Form = () => {
     // hooks
     const [noteData, setNoteData] = useState({
         name: '',
+        date: '',
         class: '',
         description: '',
         type: '',
@@ -30,6 +31,7 @@ const Form = () => {
     const clear = () => {
         setNoteData({
             name: '',
+            date: '',
             class: '',
             description: '',
             type: '',
@@ -47,7 +49,7 @@ const Form = () => {
                     value={noteData.name} onChange={(e) => setNoteData({ ...noteData, name: e.target.value })} />
 
                 <TextField className={classes.smallBox} name="date" variant='outlined' label='Class Date'
-                    value={noteData.name} onChange={(e) => setNoteData({ ...noteData, name: e.target.value })} />
+                    value={noteData.date} onChange={(e) => setNoteData({ ...noteData, date: e.target.value })} />
 
                 <TextField className={classes.smallBox} name="class" variant='outlined' label='Class Code'
                     value={noteData.class} onChange={(e) => setNoteData({ ...noteData, class: e.target.value })} />
