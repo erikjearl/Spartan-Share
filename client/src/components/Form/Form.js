@@ -46,6 +46,9 @@ const Form = () => {
                 <TextField className={classes.smallBox} name="name" variant='outlined' label='Note Name'
                     value={noteData.name} onChange={(e) => setNoteData({ ...noteData, name: e.target.value })} />
 
+<TextField className={classes.smallBox} name="date" variant='outlined' label='Class Date'
+                    value={noteData.name} onChange={(e) => setNoteData({ ...noteData, name: e.target.value })} />
+
                 <TextField className={classes.smallBox} name="class" variant='outlined' label='Class Code'
                     value={noteData.class} onChange={(e) => setNoteData({ ...noteData, class: e.target.value })} />
 
