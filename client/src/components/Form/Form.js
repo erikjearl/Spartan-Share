@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { TextField, Button, Typography, Paper, Select, MenuItem, InputLabel, FormControl} from '@material-ui/core';
+import { TextField, Button, Typography, Paper, Select, MenuItem, InputLabel, FormControl } from '@material-ui/core';
 import FileBase from 'react-file-base64';
 import { useDispatch } from 'react-redux';
 import { createNote } from '../../actions/notes'
@@ -46,7 +46,7 @@ const Form = () => {
                 <TextField className={classes.smallBox} name="name" variant='outlined' label='Note Name'
                     value={noteData.name} onChange={(e) => setNoteData({ ...noteData, name: e.target.value })} />
 
-<TextField className={classes.smallBox} name="date" variant='outlined' label='Class Date'
+                <TextField className={classes.smallBox} name="date" variant='outlined' label='Class Date'
                     value={noteData.name} onChange={(e) => setNoteData({ ...noteData, name: e.target.value })} />
 
                 <TextField className={classes.smallBox} name="class" variant='outlined' label='Class Code'
@@ -62,19 +62,17 @@ const Form = () => {
                         id="demo-simple-select"
                         value={noteData.type}
                         label="File Type"
-                        onChange={(e) => {
-                            console.log(e.target.value)
-                        }}
+                        onChange={(e) => setNoteData({ ...noteData, type: e.target.value })}
                     >
                         <MenuItem value={'NOTES'}> Notes </MenuItem>
                         <MenuItem value={'HW'}> Homework </MenuItem>
                         <MenuItem value={'LECTURE'}> Lecture Slides </MenuItem>
                     </Select>
                 </FormControl>
-                
+
                 <div className={classes.fileInput}>
                     <Typography className={classes.title} variant="h5">Attach File(s)</Typography>
-                    <FileBase 
+                    <FileBase
                         type='file' multiple={false}
                         onDone={({ base64 }) => setNoteData({ ...noteData, selectedFile: base64 })}
                     />
