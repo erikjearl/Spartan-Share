@@ -15,7 +15,19 @@ export default makeStyles({
     backgroundColor: 'rgba(0, 0, 0, 0.5)',
     backgroundBlendMode: 'darken',
   },
+  overlay: {
+    position: 'absolute',
+    top: '15px',
+    left: '20px',
+    color: 'white',
+  },
   title:{
     padding: '0 16px',
+  },
+  paragraph:{
+    margin:'0px 15px',
+  },
+  actions:{
+    margin:'0px',
   }
 });

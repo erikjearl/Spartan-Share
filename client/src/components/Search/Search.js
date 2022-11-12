@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import Notes from "../Notes/Notes";
+import Notes from "../Notes/NotesSmall";
 import { Container, Grow, Grid, AppBar, TextField, Button, Typography, FormControl,InputLabel,Select,MenuItem } from '@material-ui/core'
 import { useNavigate, useLocation } from 'react-router-dom';
 
@@ -32,11 +32,11 @@ const Search = () => {
 
   const searchUpload = () => {
     if(searchName.trim() || searchClass.trim() || searchType){
-      console.log(`Name: ${searchName} , Class: ${searchClass} , Type: ${searchType}`)
+      console.log(`Name: ${searchName} , Class: ${searchClass} , Type: ${searchType}`);
       dispatch(getNoteBySearch({searchName,searchClass,searchType}));
-      navigate(`/search/?name=${searchName||'none'}&class=${searchClass||'none'}&type=${searchType||'none'}`)
+      navigate(`/search/?name=${searchName||'none'}&class=${searchClass||'none'}&type=${searchType||'none'}`);
     }else{
-      dispatch(getNotes())
+      dispatch(getNotes());
       navigate(`/search`);
     }
     clear();
@@ -86,10 +86,10 @@ const Search = () => {
                         label="File Type"
                         onChange={(e) => setSearchType(e.target.value)}
                     >
-                        <MenuItem value={'NOTES'}> Notes </MenuItem>
-                        <MenuItem value={'HW'}> Homework </MenuItem>
-                        <MenuItem value={'LECTURE'}> Lecture Material </MenuItem>
-                        <MenuItem value={'TEXTBOOK'}> Textbook </MenuItem>
+                        <MenuItem value={'Note'}> Note </MenuItem>
+                        <MenuItem value={'Homework'}> Homework </MenuItem>
+                        <MenuItem value={'Lecture'}> Lecture Material </MenuItem>
+                        <MenuItem value={'Textbook'}> Textbook </MenuItem>
                     </Select>
                   </FormControl>
                   <Button className={classes.button} onClick={searchUpload} color="primary" variant="contained">

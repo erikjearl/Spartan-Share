@@ -48,12 +48,33 @@ const Form = () => {
 
                 <TextField className={classes.smallBox} name="name" variant='outlined' label='Note Name'
                     value={noteData.name} onChange={(e) => setNoteData({ ...noteData, name: e.target.value })} />
-
-                <TextField className={classes.smallBox} name="date" variant='outlined' label='Class Date'
+                
+                <TextField className={classes.smallBox} name="date" variant='outlined' label="Date of Note" 
+                    type="date"  InputLabelProps={{shrink: true,}}
                     value={noteData.date} onChange={(e) => setNoteData({ ...noteData, date: e.target.value })} />
+
 
                 <TextField className={classes.smallBox} name="class" variant='outlined' label='Class Code'
                     value={noteData.classID} onChange={(e) => setNoteData({ ...noteData, classID: e.target.value })} />
+
+
+                <FormControl className={classes.fileType} variant='outlined'>
+                    <InputLabel id="file-type">File Type</InputLabel>
+                    <Select
+                        labelId="file-type"
+                        id="demo-simple-select"
+                        value={noteData.type}
+                        label="File Type"
+                        onChange={(e) => setNoteData({ ...noteData, type: e.target.value })}
+                    >
+                        <MenuItem value={'Note'}> Note </MenuItem>
+                        <MenuItem value={'Homework'}> Homework </MenuItem>
+                        <MenuItem value={'Lecture'}> Lecture Material </MenuItem>
+                        <MenuItem value={'Textbook'}> Textbook </MenuItem>
+                    </Select>
+                </FormControl>
+
+
 
                 <TextField name="description" variant='outlined' label='Description' multiline rows={5} fullWidth
                     value={noteData.description} onChange={(e) => setNoteData({ ...noteData, description: e.target.value })} />
@@ -66,23 +87,6 @@ const Form = () => {
                         onDone={({ base64 }) => setNoteData({ ...noteData, selectedFile: base64 })}
                     />
                 </div>
-
-
-                <FormControl className={classes.fileType}>
-                    <InputLabel id="file-type">File Type</InputLabel>
-                    <Select
-                        labelId="file-type"
-                        id="demo-simple-select"
-                        value={noteData.type}
-                        label="File Type"
-                        onChange={(e) => setNoteData({ ...noteData, type: e.target.value })}
-                    >
-                        <MenuItem value={'NOTES'}> Notes </MenuItem>
-                        <MenuItem value={'HW'}> Homework </MenuItem>
-                        <MenuItem value={'LECTURE'}> Lecture Material </MenuItem>
-                        <MenuItem value={'TEXTBOOK'}> Textbook </MenuItem>
-                    </Select>
-                </FormControl>
 
                 <Button className={classes.buttonSubmit} variant="contained" color="primary" size="large" type="submit" fullWidth>Submit</Button>
                 <Button variant="contained" color="secondary" size="small" onClick={clear} fullWidth>Clear</Button>

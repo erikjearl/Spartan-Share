@@ -21,8 +21,8 @@ export default makeStyles((theme) => ({
     width: "48%"
   },
   fileType:{
-    width: "70%",
-    margin: '10px'
+    width: "48%",
+    margin: '8px 0px 0px 8px'
   },
   fileInput: {
     margin: '10px 0 10px 10px ',

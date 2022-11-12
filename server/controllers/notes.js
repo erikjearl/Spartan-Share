@@ -26,17 +26,27 @@ export const postNote = async (req, res) => {
 
 // GET by searchQuery
 export const getNoteBySearch = async (req,res) => {
-    const { searchQuery, tags } = req.query;
+    const { searchQuery, classCode, fileType } = req.query;
     try {
         const name = new RegExp(searchQuery, 'i');
-        const description = new RegExp(searchQuery, 'i');
-        const classID = new RegExp(searchQuery, 'i');
-        const type = new RegExp(searchQuery, 'i');
+        const classID = new RegExp(classCode, 'i');
+        const type = new RegExp(fileType, 'i');
 
-        const uploads = await NoteModel.find( {$or: [{name}, {description}, {classID}, {type}]} );
-        res.json({data:uploads});
+        let notes;
+        if(searchQuery === 'none'){
+            if(classCode === 'none' && fileType !==' none'){
+                notes =  await NoteModel.find({type:type});
+            }else if(classCode !== 'none' && fileType ===' none'){
+                notes =  await NoteModel.find({classID:classID});
+            } else {
+                notes =  await NoteModel.find({$and: [ {classID:classID}, {type:type} ] });
+            }
+        }else{
+            notes =  await NoteModel.find({$or: [ {name:name}, {classID:classID}, {type:type} ] });
+        }
+        res.json({data:notes});
+
     } catch (error){
-        console.log("error here")
-        res.status(404).json({ message: `wtf: ${error.message}` });
+        res.status(404).json({ message: error.message });
     }
 }
