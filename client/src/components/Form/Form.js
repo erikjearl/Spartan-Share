@@ -15,7 +15,7 @@ const Form = () => {
     const [noteData, setNoteData] = useState({
         name: '',
         date: '',
-        class: '',
+        classID: '',
         description: '',
         type: '',
         selectedFile: '',
@@ -25,6 +25,7 @@ const Form = () => {
     const handleSubmit = (event) => {
         event.preventDefault();
         dispatch(createNote(noteData))
+        clear();
     }
 
     // implement form clear
@@ -32,7 +33,7 @@ const Form = () => {
         setNoteData({
             name: '',
             date: '',
-            class: '',
+            classID: '',
             description: '',
             type: '',
             selectedFile: '',
@@ -52,12 +53,22 @@ const Form = () => {
                     value={noteData.date} onChange={(e) => setNoteData({ ...noteData, date: e.target.value })} />
 
                 <TextField className={classes.smallBox} name="class" variant='outlined' label='Class Code'
-                    value={noteData.class} onChange={(e) => setNoteData({ ...noteData, class: e.target.value })} />
+                    value={noteData.classID} onChange={(e) => setNoteData({ ...noteData, classID: e.target.value })} />
 
                 <TextField name="description" variant='outlined' label='Description' multiline rows={5} fullWidth
                     value={noteData.description} onChange={(e) => setNoteData({ ...noteData, description: e.target.value })} />
 
-                <FormControl fullWidth>
+
+                <div className={classes.fileInput}>
+                    <Typography className={classes.title} variant="h5">Attach File(s)</Typography>
+                    <FileBase
+                        type='file' multiple={false}
+                        onDone={({ base64 }) => setNoteData({ ...noteData, selectedFile: base64 })}
+                    />
+                </div>
+
+
+                <FormControl className={classes.fileType}>
                     <InputLabel id="file-type">File Type</InputLabel>
                     <Select
                         labelId="file-type"
@@ -68,17 +79,10 @@ const Form = () => {
                     >
                         <MenuItem value={'NOTES'}> Notes </MenuItem>
                         <MenuItem value={'HW'}> Homework </MenuItem>
-                        <MenuItem value={'LECTURE'}> Lecture Slides </MenuItem>
+                        <MenuItem value={'LECTURE'}> Lecture Material </MenuItem>
+                        <MenuItem value={'TEXTBOOK'}> Textbook </MenuItem>
                     </Select>
                 </FormControl>
-
-                <div className={classes.fileInput}>
-                    <Typography className={classes.title} variant="h5">Attach File(s)</Typography>
-                    <FileBase
-                        type='file' multiple={false}
-                        onDone={({ base64 }) => setNoteData({ ...noteData, selectedFile: base64 })}
-                    />
-                </div>
 
                 <Button className={classes.buttonSubmit} variant="contained" color="primary" size="large" type="submit" fullWidth>Submit</Button>
                 <Button variant="contained" color="secondary" size="small" onClick={clear} fullWidth>Clear</Button>

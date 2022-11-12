@@ -20,9 +20,12 @@ export default makeStyles((theme) => ({
   smallBox:{
     width: "48%"
   },
+  fileType:{
+    width: "70%",
+    margin: '10px'
+  },
   fileInput: {
-    width: '97%',
-    margin: '10px 0',
+    margin: '10px 0 10px 10px ',
   },
   buttonSubmit: {
     marginBottom: 10,

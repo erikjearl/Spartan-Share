@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 // define data model for each note
 const noteSchema = mongoose.Schema({
     name: String,
-    class: String,
+    classID: String,
     description: String,
     selectedFile: String,
     type: String,

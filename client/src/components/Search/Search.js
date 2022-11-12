@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import Notes from "../Notes/Notes";
-import { Container, Grow, Grid, AppBar, TextField, Button, Typography } from '@material-ui/core'
+import { Container, Grow, Grid, AppBar, TextField, Button, Typography, FormControl,InputLabel,Select,MenuItem } from '@material-ui/core'
 import { useNavigate, useLocation } from 'react-router-dom';
 
 import useStyles from './styles';
-//import { getUploadBySearch } from '../../actions/notes';
+import { getNotes, getNoteBySearch } from '../../actions/notes';
 
 
 function useQuery(){
@@ -22,17 +22,32 @@ const Search = () => {
 
   const [searchName,  setSearchName] = useState('');
   const [searchClass, setSearchClass] = useState('');
+  const [searchType, setSearchType] = useState('');
+
+  const clear = () => {
+    setSearchName('');
+    setSearchClass('');
+    setSearchType('');
+  }
 
   const searchUpload = () => {
-    console.log(`Name: ${searchName}   Class: ${searchClass}`)
-    //dispatch getUploadBySearch
-    // navigate to url /search/?searchQuery=${search}
+    if(searchName.trim() || searchClass.trim() || searchType){
+      console.log(`Name: ${searchName} , Class: ${searchClass} , Type: ${searchType}`)
+      dispatch(getNoteBySearch({searchName,searchClass,searchType}));
+      navigate(`/search/?name=${searchName||'none'}&class=${searchClass||'none'}&type=${searchType||'none'}`)
+    }else{
+      dispatch(getNotes())
+      navigate(`/search`);
+    }
+    clear();
   }
+
   const handleKeyPress = (e) => {
     // submit if ENTER is pressed
     if(e.keyCode === 13) {
       searchUpload();
   }
+
   }
 
     return (
@@ -62,6 +77,21 @@ const Search = () => {
                     value={searchClass}
                     onChange={(e)=>setSearchClass(e.target.value)}
                   />
+                  <FormControl variant ="outlined">
+                    <InputLabel  className={classes.select} id="file-type">File Type</InputLabel>
+                    <Select className={classes.textField}
+                        labelId="file-type"
+                        id="demo-simple-select"
+                        value={searchType}
+                        label="File Type"
+                        onChange={(e) => setSearchType(e.target.value)}
+                    >
+                        <MenuItem value={'NOTES'}> Notes </MenuItem>
+                        <MenuItem value={'HW'}> Homework </MenuItem>
+                        <MenuItem value={'LECTURE'}> Lecture Material </MenuItem>
+                        <MenuItem value={'TEXTBOOK'}> Textbook </MenuItem>
+                    </Select>
+                  </FormControl>
                   <Button className={classes.button} onClick={searchUpload} color="primary" variant="contained">
                     Search
                   </Button>

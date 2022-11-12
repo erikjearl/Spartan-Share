@@ -17,6 +17,16 @@ export const createNote = (note) => async (dispatch) => {
         const action = { type:'CREATE', payload:data};
         dispatch(action);
     } catch (error) {
-        console.log(error);
+        console.log(error.message);
+    }
+}
+
+export const getNoteBySearch = (searchQuery) => async (dispatch) => {
+    try {
+        const {data: {data}} = await api.fetchNoteBySearch(searchQuery)
+        const action = { type:'FETCH_ALL', payload:data};
+        dispatch(action);
+    } catch (error) {
+        console.log(error.message)
     }
 }

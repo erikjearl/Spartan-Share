@@ -16,6 +16,9 @@ export default makeStyles({
         width: '98%',
         margin: '3px 10px',
     },
+    select:{
+        margin: '10px',
+    },
     button:{
         margin: '5px',
     }
