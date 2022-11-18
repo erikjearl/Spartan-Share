@@ -11,7 +11,7 @@ const Home = () => {
       <Grow in>
         <Container>
           <Grid container justifyContent="space-between" alignItems="stretch" spacing={3}>
-              <Grid item sm={4}>
+              <Grid item sm={12}>
                 <Notes />
               </Grid>
           </Grid>

@@ -12,13 +12,23 @@ export default makeStyles((theme) => ({
   form: {
     display: 'flex',
     flexWrap: 'wrap',
-    justifyContent: 'center',
+    justifyContent: 'left',
+  },
+  title: {
+    width: "100%"
+  },
+  smallBox:{
+    width: "48%"
+  },
+  fileType:{
+    width: "48%",
+    margin: '8px 0px 0px 8px'
   },
   fileInput: {
-    width: '97%',
-    margin: '10px 0',
+    margin: '10px 0 10px 10px ',
   },
   buttonSubmit: {
     marginBottom: 10,
   },
+
 }));
