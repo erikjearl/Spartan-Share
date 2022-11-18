@@ -93,7 +93,7 @@ const Search = () => {
                     </Select>
                   </FormControl>
                   <Button className={classes.button} onClick={searchUpload} color="primary" variant="contained">
-                    Search
+                    Filter
                   </Button>
                 </AppBar>
               </Grid>
