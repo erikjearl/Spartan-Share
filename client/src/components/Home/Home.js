@@ -1,6 +1,6 @@
 import useStyles from './styles'
 import React from 'react';
-import Notes from '../Notes/Notes';
+import Notes from '../Notes/NotesRow';
 import { Container, Grow, Grid, Typography, Paper } from '@material-ui/core'
 import NavigateBeforeSharpIcon from '@material-ui/icons/NavigateBeforeSharp';
 import NavigateNextSharpIcon from '@material-ui/icons/NavigateNextSharp';
@@ -32,35 +32,28 @@ const Home = () => {
         <Paper style={{padding:'20px', borderRadius:'15px'}} elevation={6}>
           <Grid container direction="column" justifyContent="space-around" alignItems="stretch">
             <Grid container direction="column" justifyContent="flex-start" alignItems="stretch" spacing={3}>
-
-              <Grid item xs>
-                <Typography variant="h4" className={classes.subheader}>Popular</Typography>
-              </Grid>
-              <Grid item xs>
-                <Container>
-                  <Grid container justifyContent="space-evenly" alignItems="stretch">
-                    <Grid item xs><NavigateBeforeSharpIcon color="primary" fontSize="large" /></Grid>
-                    <Grid item xs={10}>ADD CONTAINER FOR NOTES HERE</Grid>
-                    <Grid item xs><NavigateNextSharpIcon color="primary" fontSize="large" /></Grid>
-                  </Grid>
-                </Container>
-              </Grid>
-
               <Grid item xs>
                 <Typography variant="h4" className={classes.subheader}>Recently Uploaded</Typography>
               </Grid>
               <Grid item xs>
                 <Container>
                   <Grid container justifyContent="space-evenly" alignItems="stretch">
+                    {/* 
                     <Grid item xs><NavigateBeforeSharpIcon color="primary" fontSize="large" /></Grid>
-                    <Grid item xs={10}>ADD CONTAINER FOR NOTES HERE</Grid>
+                    */}
+                    <Grid item sm={12}>
+                      <Notes />
+                    </Grid>
+                    {/* 
                     <Grid item xs><NavigateNextSharpIcon color="primary" fontSize="large" /></Grid>
+                    */}
                   </Grid>
                 </Container>
               </Grid>
             </Grid>
           </Grid>
           </Paper>
+          <br/>
        </Container>
       </Grow>
     );

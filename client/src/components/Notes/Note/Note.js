@@ -14,30 +14,31 @@ const Note = ({note}) => {
     return(
         <Card className={classes.card}>
 
-        
+        <ButtonBase className ={classes.cardAction} onClick={openNote} >
             <CardMedia className={classes.media} image={note.selectedFile || 'https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png'} title={note.title}/>
             <div className={classes.overlay}>
             <Typography variant="h6">{note.type}</Typography>
                 <Typography variant="body1">{moment(note.createdAt).fromNow()}</Typography>
             </div>
-        <ButtonBase className ={classes.cardAction} onClick={openNote} >
-            <CardContent >
+
+            <CardContent>
                 <Typography variant='h4'>
-                    {note.name}
+                    {note.name.length > 20? note.name.slice(0,10)+"...":note.name}
                 </Typography>
                 <Typography variant="h6" className={classes.paragraph}>
                     {note.classID}
                 </Typography>
                 <Typography variant="body1" color="textSecondary" className={classes.paragraph}>
-                    {note.description}
+                    {note.description.length > 50? note.description.slice(0,50)+"...":note.description}
                 </Typography>
             </CardContent>
         </ButtonBase>
 
+            {/*
             <CardActions className={classes.actions}>
                 <Button>Like 👍</Button>
             </CardActions>
-
+            */}
         </Card>
     );
 }

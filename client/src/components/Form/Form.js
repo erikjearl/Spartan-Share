@@ -24,7 +24,9 @@ const Form = () => {
     // button functionally 
     const handleSubmit = (event) => {
         event.preventDefault();
-        dispatch(createNote(noteData))
+        if(noteData.name != '' && noteData.selectedFile != ''){
+            dispatch(createNote(noteData))
+        }
         clear();
     }
 

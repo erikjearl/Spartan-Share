@@ -10,8 +10,8 @@ export default makeStyles( () => ({
         width: '100%',
     },
     image:{
-        width:'25vh',
-        height:'30vh',
+        width:'100%',
+        height:'100%'
     }
     
 }));
