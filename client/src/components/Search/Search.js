@@ -52,7 +52,7 @@ const Search = () => {
 
     return (
       <Grow in>
-        <Container>
+        <Container disableGutters>
           <Grid container justifyContent="space-between" alignItems="stretch" spacing={3}>
               <Grid item sm={12}>
                 <AppBar className={classes.appBar} position="static" color="inherit">

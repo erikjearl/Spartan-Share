@@ -14,8 +14,10 @@ export const getNotes = () => async (dispatch) => {
 export const createNote = (note) => async (dispatch) => {
     try{
         const { data } = await api.createNote(note)
-        const action = { type:'CREATE', payload:data};
-        dispatch(action);
+        if(data.name.length>0){
+            const action = { type:'CREATE', payload:data};
+            dispatch(action);
+        }
     } catch (error) {
         console.log(error.message);
     }

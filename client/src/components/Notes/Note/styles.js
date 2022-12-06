@@ -10,7 +10,7 @@ export default makeStyles({
     position: 'relative',
   }, 
   media: {
-    height: 0,
+    height: '50px',
     paddingTop: '56.25%',
     backgroundColor: 'rgba(0, 0, 0, 0.5)',
     backgroundBlendMode: 'darken',
@@ -29,5 +29,9 @@ export default makeStyles({
   },
   actions:{
     margin:'0px',
-  }
+  },
+  cardAction: {
+    display: 'block',
+    textAlign: 'initial',
+  },
 });

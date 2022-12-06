@@ -12,8 +12,8 @@ const Notes = () => {
     return(
         !notes.length ? <CircularProgress color='primary'/> : (
             <Grid container alignItems="stretch" spacing={3}>
-                {notes.reverse().map((note) => (
-                    <Grid className={classes.note} item key={note._id} xs={6} sm={4} lg={3}>
+                {notes.slice(notes.length-4, notes.length).map((note) => (
+                    <Grid className={classes.noteRow} item key={note._id} xs={3}>
                         <Note note={note}/>
                     </Grid>
                 ))}

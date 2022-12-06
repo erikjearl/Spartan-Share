@@ -8,6 +8,7 @@ import Home from "./components/Home/Home";
 import Search from "./components/Search/Search";
 import Navbar from "./components/Navbar/Navbar";
 import Form from "./components/Form/Form";
+import NoteDetails from "./components/NoteDetails/NoteDetails";
 
 const App = () => {
     const dispatch = useDispatch();
@@ -29,6 +30,7 @@ const App = () => {
                     <Route path='/' element={<Home />} />
                     <Route path='/search' element={<Search />} />
                     <Route path='/form' element={<Form />} />
+                    <Route path='/notes/:id' element={<NoteDetails />} />
                 </Routes>
             </BrowserRouter>
 

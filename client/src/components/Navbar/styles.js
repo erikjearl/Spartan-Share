@@ -9,7 +9,7 @@ export default makeStyles( () => ({
         margin: '30px 0',
         display: 'flex',
         flexDirection: 'row',
-        justifyContent: 'center',
+        justifyContent: 'space between',
         alignItems: 'center',
       },
       heading: {
@@ -19,25 +19,13 @@ export default makeStyles( () => ({
           'Arial',
           'sans-serif',
         ].join(','),
+        padding:'20px 0px 0px 0px'
       },
       image: {
-        marginRight: '15px',
-      },
-      space:{
-        marginRight:'200px'
+        margin: '0px 15px',
       },
       link: {
         marginTop: '15px',
-        marginLeft: '25px',
-        marginRight: '25px',
-        color: 'rgba(10, 48, 78)',
-        fontFamily: [
-          '"Times New Roman"',
-          'Arial',
-          'sans-serif',
-        ].join(','),
-      },
-      icons: {
-        transform: 'scale(1.5)',
+        marginRight: '15px',
       },
 }));
