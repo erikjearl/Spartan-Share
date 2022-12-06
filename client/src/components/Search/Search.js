@@ -57,6 +57,21 @@ const Search = () => {
               <Grid item sm={12}>
                 <AppBar className={classes.appBar} position="static" color="inherit">
                   <Typography className={classes.title} variant="h4">Search Fields</Typography>
+                  <FormControl variant ="outlined">
+                    <InputLabel  className={classes.select} id="file-type">File Type</InputLabel>
+                    <Select className={classes.textField}
+                        labelId="file-type"
+                        id="demo-simple-select"
+                        value={searchType}
+                        label="File Type"
+                        onChange={(e) => setSearchType(e.target.value)}
+                    >
+                        <MenuItem value={'Note'}> Note </MenuItem>
+                        <MenuItem value={'Homework'}> Homework </MenuItem>
+                        <MenuItem value={'Lecture'}> Lecture Material </MenuItem>
+                        <MenuItem value={'Textbook'}> Textbook </MenuItem>
+                    </Select>
+                  </FormControl>
                   <TextField
                     className={classes.textField}
                     name="search" 
@@ -77,23 +92,8 @@ const Search = () => {
                     value={searchClass}
                     onChange={(e)=>setSearchClass(e.target.value)}
                   />
-                  <FormControl variant ="outlined">
-                    <InputLabel  className={classes.select} id="file-type">File Type</InputLabel>
-                    <Select className={classes.textField}
-                        labelId="file-type"
-                        id="demo-simple-select"
-                        value={searchType}
-                        label="File Type"
-                        onChange={(e) => setSearchType(e.target.value)}
-                    >
-                        <MenuItem value={'Note'}> Note </MenuItem>
-                        <MenuItem value={'Homework'}> Homework </MenuItem>
-                        <MenuItem value={'Lecture'}> Lecture Material </MenuItem>
-                        <MenuItem value={'Textbook'}> Textbook </MenuItem>
-                    </Select>
-                  </FormControl>
                   <Button className={classes.button} onClick={searchUpload} color="primary" variant="contained">
-                    Search
+                    Filter
                   </Button>
                 </AppBar>
               </Grid>
