@@ -17,11 +17,11 @@ const Navbar = () => {
                 <img src={text} alt="upload" height="75" width="260"></img>
               </Link>
             <Grid container justifyContent="flex-end">
-              <Link href='/search' className={classes.link} variant="h4">
-                <img src={search} alt="upload" height="40"></img>
+              <Link href='/form' className={classes.upload} variant="h4">
+                  <img src={upload} alt="upload" height="40"></img>
               </Link>
-              <Link href='/form' className={classes.link} variant="h4">
-                <img src={upload} alt="upload" height="40"></img>
+              <Link href='/search' className={classes.search} variant="h4">
+                <img src={search} alt="upload" height="40"></img>
               </Link>
             </Grid>
       </AppBar>

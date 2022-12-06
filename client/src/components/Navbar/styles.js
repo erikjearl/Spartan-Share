@@ -24,8 +24,12 @@ export default makeStyles( () => ({
       image: {
         margin: '0px 15px',
       },
-      link: {
+      search: {
         marginTop: '15px',
+        marginRight: '15px',
+      },
+      upload: {
+        marginTop: '10px',
         marginRight: '15px',
       },
 }));

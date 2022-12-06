@@ -21,7 +21,14 @@ const Home = () => {
             <Grid item xs={9}>
               <Typography variant="h3">What is SpartanShare?</Typography>
               <br/>
-              <Typography paragraph> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin non leo et magna tristique egestas nec a nisl. Mauris quis ipsum nisl. Sed ultricies urna eros, vel ornare urna molestie eu. Proin ullamcorper dictum luctus. In vitae dolor ac nulla luctus consectetur id in justo. Sed ultricies lectus id semper ullamcorper. Nam orci massa, interdum sed tortor id, rutrum fermentum justo. Nulla facilisi. Integer tempor augue pellentesque, consectetur eros id, porttitor eros. Pellentesque et felis tortor. Suspendisse vitae turpis at dolor convallis aliquam. Nam ipsum ex, hendrerit venenatis odio sit amet, pretium consequat risus. Vestibulum non ligula rhoncus, congue nulla sit amet, interdum metus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nunc nec semper felis. </Typography>
+              <Typography variant="h5" paragraph> 
+                Spartan Share is an anonymous file sharing platform designed for CWRU students to upload, download, and share notes between each other.
+                Students can add class notes, homework assignments, lecture slides and notes, or textbooks for other students to access and study from.
+                Sharing your old notes is a great way to help other students and give all students equal access to notes and materials!
+              </Typography>
+              <Typography variant="h5" paragraph>
+                SpartanShare™ does not condone cheating or any form of academic dishonestly.
+              </Typography>
             </Grid>
             <Grid item xs={3}>
               <img className={classes.image} src={logo} alt="logo" height="75"></img>

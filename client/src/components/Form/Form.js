@@ -41,12 +41,6 @@ const Form = () => {
     // button functionally 
     const handleSubmit = (event) => {
         event.preventDefault();
-        /*
-        if(noteData.name != '' && noteData.selectedFile != ''){
-            dispatch(createNote(noteData))
-        }
-        clear();
-        */
         setFormErrors(handleValidation(noteData))
         setIsSubmit(true)
         if (Object.keys(formErrors).length === 0) {
@@ -153,7 +147,7 @@ const Form = () => {
 
 
 
-                <TextField name="description" variant='outlined' label='Description' multiline rows={5} fullWidth
+                <TextField name="description" variant='outlined' label='Description' multiline minRows={5} fullWidth
                     value={noteData.description} helperText={formErrors.descriptionError} error={formErrors.noDescription} onChange={(e) => setNoteData({ ...noteData, description: e.target.value })} />
 
 
