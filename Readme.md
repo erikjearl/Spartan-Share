@@ -1,15 +1,13 @@
 # HacSoc Fall Project 2022
 * Authors: Erik, Jeff, Alex R, Alex W, Jessica S
 
-
-## Client
-### Start: npm start
-### Setup:
-* npx create-react-app
-
-
-## Server
-### start: npm start
-### Setup:
-* npm init -y
-* npm install body-parser cors express mongoose nodemon
+## How to run
+* cd to the server directory and run the command 
+```
+npm start
+```
+* then cd to the server directory and run the command
+```
+npm start
+```
+* the spartan share webpage will open
