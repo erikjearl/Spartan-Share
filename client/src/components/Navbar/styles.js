@@ -19,6 +19,7 @@ export default makeStyles( () => ({
           'Arial',
           'sans-serif',
         ].join(','),
+        padding:'20px 0px 0px 0px'
       },
       image: {
         marginRight: '15px',

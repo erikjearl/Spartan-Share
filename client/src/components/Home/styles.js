@@ -2,13 +2,16 @@ import { red } from "@material-ui/core/colors";
 import { makeStyles } from "@material-ui/core/styles";
 
 export default makeStyles( () => ({
-
-    blurb: {
-        color: 'white',
+    AboutUs: {
+        color: 'rgb(20,40,70)',
     },
     subheader: {
-        color: 'white',
+        color: 'rgb(20,40,70)',
         width: '100%',
     },
+    image:{
+        width:'25vh',
+        height:'30vh',
+    }
     
 }));
