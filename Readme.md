@@ -1,5 +1,5 @@
 # HacSoc Fall Project 2022
-* Authors: Erik Earl, Jeffry Pan, Alex Wang, Jessica S, Alex R
+* Authors: Erik Earl, Jeffry Pan, Alex Wang, Jessica Shue, Alex R
 
 ## About the Project
 * We built a file sharing web app for CWRU students to upload and share class notes
